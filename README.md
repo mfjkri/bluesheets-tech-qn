@@ -20,7 +20,7 @@ This project implements a FastAPI-based API for managing warehouse data and runn
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mfjkri/bluesheets-tech-qn.git bluesheets-warehouse-api
+   git clone <...> bluesheets-warehouse-api
    ```
 
 2. Navigate to the project directory:
