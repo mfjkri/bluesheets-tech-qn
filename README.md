@@ -69,10 +69,16 @@ The use of tools requires running commands locally instead of through Docker. Fo
    pip install -r requirements.txt
    ```
 
-4. Create .env File:
+4. Create .env file:
 
    ```bash
    cp .env.local .env
+   ```
+
+5. Prisma generate:
+
+   ```bash
+   prisma generate --schema=src/prisma/schema.prisma
    ```
 
 ### Importing Data
@@ -119,8 +125,6 @@ Replace `ITEM_DESCRIPTION` with the description of the item you want to query.
 ## Configuration
 
 The database connection details can be configured using environment variables. Modify the `.env` file as needed.
-
-Certainly! Here's a behavior description based on the import settings:
 
 ## Behavior
 
