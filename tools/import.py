@@ -66,7 +66,7 @@ header_transforms = {
 async def setup():
     await db.connect()
 
-async def import_data_files(folder_path):
+async def import_data_files(folder_path: str):
     files = os.listdir(folder_path)
     total_files_len = len(files)
     
@@ -84,7 +84,7 @@ async def import_data_files(folder_path):
                 await ImportedFile.prisma().create(data={'fileName': file_name})
 
 
-async def insert_items_from_json(json_file):
+async def insert_items_from_json(json_file: str):
     with open(json_file, 'r') as file:
         data = json.load(file)
         
