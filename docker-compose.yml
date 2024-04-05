@@ -1,0 +1,32 @@
+services:
+  app:
+    container_name: bluesheets-app
+    image: bluesheets:app
+    build: .
+    networks:
+      - default-network
+    ports:
+      - 8888:8888
+    restart: always
+    volumes:
+      - type: bind
+        source: src
+        target: /opt/docker/app/src
+  postgresql:
+    container_name: bluesheets-postgresql
+    image: debezium/postgres:14
+    environment:
+      POSTGRES_USER: bluesheets
+      POSTGRES_PASSWORD: bluesheets
+    platform: linux/x86_64
+    networks:
+      - default-network
+    ports:
+      - 5432:5432
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    volumes:
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+networks:
+  default-network:
+    driver: bridge
+    name: default-network
